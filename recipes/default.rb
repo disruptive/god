@@ -19,17 +19,17 @@
 
 gem_package "god" do
   action :install
-  gem_binary "/usr/bin/gem"
+  gem_binary node[:god][:gem_binary]
 end
 
-directory "/etc/god/conf.d" do
+directory "#{node[:god][:conf]}/conf.d" do
   recursive true
   owner "root"
   group "root"
   mode 0755
 end
 
-template "/etc/god/master.god" do
+template "#{node[:god][:conf]}/master.god" do
   source "master.god.erb"
   owner "root"
   group "root"

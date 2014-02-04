@@ -1,4 +1,6 @@
 default['god']['bin']               = '/usr/bin/god'
+default['god']['conf']              = '/etc/god'
+default['god']['gem_binary']        = '/usr/bin/gem'
 default['god']['init_style']        = 'runit'
 default['god']['email']['from']     = 'god@'+node[:domain].to_s
 default['god']['email']['contacts'] = [['dev', 'developers@'+node[:domain].to_s, 'developers']]

@@ -27,4 +27,4 @@ end
 
 <% end %>
 
-God.load "/etc/god/conf.d/*.god"
+God.load "<%= node['god']['conf']%>/conf.d/*.god"

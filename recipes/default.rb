@@ -22,7 +22,7 @@ gem_package "god" do
   gem_binary node[:god][:gem_binary]
 end
 
-directory "#{node[:god][:conf]}/conf.d" do
+directory node[:god][:confd] do
   recursive true
   owner "root"
   group "root"

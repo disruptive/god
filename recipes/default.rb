@@ -24,15 +24,15 @@ end
 
 directory node[:god][:confd] do
   recursive true
-  owner "root"
-  group "root"
+  owner node[:god][:uid]
+  group node[:god][:gid]
   mode 0755
 end
 
 template "#{node[:god][:conf]}/master.god" do
   source "master.god.erb"
-  owner "root"
-  group "root"
+  owner node[:god][:uid]
+  group node[:god][:gid]
   mode 0755
 end
 
@@ -42,8 +42,8 @@ if node['god']['init_style'] == 'runit'
 elsif node['god']['init_style'] == 'init'
   template "/etc/init.d/god" do
     source "god.init.erb"
-    owner "root"
-    group "root"
+    owner node[:god][:uid]
+    group node[:god][:gid]
     mode 0755
   end
 
